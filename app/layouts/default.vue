@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+
+</script>
 
 <!-- layouts/default.vue -->
 <template>

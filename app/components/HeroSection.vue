@@ -31,7 +31,7 @@ const previewItems = [
         <h1
           class="mt-6 max-w-5xl text-5xl font-semibold tracking-[-0.05em] text-balance sm:text-6xl lg:text-7xl xl:text-[5.5rem]"
         >
-          Une base Nuxt nette, rapide et vraiment prête pour lancer un site
+          Une base Nuxt, rapide et vraiment prête pour lancer un site
           agence.
         </h1>
 
@@ -45,7 +45,7 @@ const previewItems = [
 
         <div class="mt-8 flex flex-wrap items-center gap-4">
           <a
-            href="https://github.com/NicolasDeza/nuxt-starter-vitrine"
+            href="https://github.com/logiq-dev/nuxt-starter-logiq"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover"
@@ -54,7 +54,7 @@ const previewItems = [
           </a>
 
           <a
-            href="https://github.com/NicolasDeza/nuxt-starter-vitrine"
+            href="https://github.com/logiq-dev/nuxt-starter-logiq"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2 rounded-xl border border-black/10 bg-white/65 px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-white dark:border-white/12 dark:bg-white/6 dark:hover:bg-white/10"
