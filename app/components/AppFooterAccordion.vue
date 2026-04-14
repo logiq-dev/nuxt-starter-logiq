@@ -27,7 +27,7 @@ const footerGroups = [
         target: "_blank",
         rel: "noopener noreferrer",
       },
-      { label: "Mentions légales", to: "/legal/mentions-legales" },
+      { label: "Mentions l\u00E9gales", to: "/legal/mentions-legales" },
     ],
   },
 ];
@@ -52,28 +52,30 @@ const toggleSection = (section) => {
 
 <template>
   <footer
-    class="relative overflow-hidden border-t border-white/10 bg-primary-bg py-16 text-white/90"
+    class="relative overflow-hidden border-t border-border-soft bg-primary-bg py-16 text-foreground"
   >
+    <div class="absolute inset-x-0 top-0 h-px bg-border-soft" />
+
     <div class="mx-auto max-w-360 px-6">
       <div class="grid gap-12 text-center lg:grid-cols-12 lg:gap-8 lg:text-left">
         <div class="flex flex-col items-center lg:col-span-5 lg:items-start">
           <div class="flex items-center gap-3">
             <div
-              class="h-8 w-8 rounded-lg bg-linear-to-br from-primary to-blue-400 shadow-[0_0_20px_rgba(0,220,130,0.25)]"
+              class="h-8 w-8 rounded-lg bg-linear-to-br from-primary to-cyan-400 shadow-[0_0_20px_rgba(0,220,130,0.18)]"
             />
-            <span class="text-xl font-bold tracking-tight text-white">
+            <span class="text-xl font-bold tracking-tight text-foreground">
               LOGIQ<span class="text-primary">.</span>
             </span>
           </div>
 
-          <p class="mt-6 max-w-md text-balance text-sm leading-relaxed text-white/50">
+          <p class="mt-6 max-w-md text-balance text-sm leading-relaxed text-foreground/62">
             Propulsez vos projets avec une architecture Nuxt 4 ultra-rapide.
-            Pensé pour la performance, conçu pour l'élégance.
+            Pens&eacute; pour la performance, con&ccedil;u pour l&rsquo;&eacute;l&eacute;gance.
           </p>
 
           <div class="mt-8 w-full max-w-md">
             <div
-              class="group relative flex items-center rounded-full border border-white/10 bg-white/3 p-1 transition focus-within:border-primary/50"
+              class="group relative flex items-center rounded-full border border-border-soft bg-surface p-1 shadow-sm transition focus-within:border-primary/50"
             >
               <label for="footer-accordion-newsletter-email" class="sr-only">
                 Votre email
@@ -84,11 +86,11 @@ const toggleSection = (section) => {
                 type="email"
                 autocomplete="email"
                 placeholder="Votre email"
-                class="w-full bg-transparent px-4 text-sm outline-none placeholder:text-white/30"
+                class="w-full bg-transparent px-4 text-sm text-foreground outline-none placeholder:text-foreground/35"
               >
               <button
                 type="button"
-                class="cursor-pointer rounded-full bg-white px-4 py-2 text-xs font-bold text-black transition hover:bg-primary hover:text-white"
+                class="cursor-pointer rounded-full bg-primary px-4 py-2 text-xs font-bold text-white transition hover:bg-primary-hover"
               >
                 Rejoindre
               </button>
@@ -104,14 +106,14 @@ const toggleSection = (section) => {
           >
             <button
               type="button"
-              class="flex w-full items-center justify-center gap-4 text-center text-xs font-bold uppercase tracking-[0.2em] text-white/30 md:pointer-events-none md:cursor-default lg:justify-start"
+              class="flex w-full items-center justify-center gap-4 text-center text-xs font-bold uppercase tracking-[0.2em] text-foreground/42 md:pointer-events-none md:cursor-default lg:justify-start"
               :aria-expanded="openSections[group.key]"
               :aria-controls="`${group.key}-links`"
               @click="toggleSection(group.key)"
             >
               <span>{{ group.title }}</span>
               <span
-                class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 md:hidden"
+                class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border-soft bg-surface md:hidden"
               >
                 <svg
                   class="h-4 w-4 transition-transform duration-200"
@@ -146,7 +148,7 @@ const toggleSection = (section) => {
                     :to="link.to"
                     :target="link.target"
                     :rel="link.rel"
-                    class="group inline-flex items-center justify-center text-[15px] text-white/60 transition-colors hover:text-primary lg:justify-start"
+                    class="group inline-flex items-center justify-center text-[15px] text-foreground/68 transition-colors hover:text-primary lg:justify-start"
                   >
                     {{ link.label }}
                     <span
@@ -174,12 +176,12 @@ const toggleSection = (section) => {
         </div>
       </div>
 
-      <div class="mt-14 border-t border-white/10 pt-8">
+      <div class="mt-14 border-t border-border-soft pt-8">
         <div
           class="flex flex-col items-center gap-5 text-center md:flex-row md:items-center md:justify-between md:text-left"
         >
-          <p class="text-xs text-white/40">
-            © {{ year }} Logiq Starter. Tous droits réservés.
+          <p class="text-xs text-foreground/42">
+            &copy; {{ year }} Logiq Starter. Tous droits r&eacute;serv&eacute;s.
           </p>
 
           <div
@@ -189,18 +191,18 @@ const toggleSection = (section) => {
               to="https://logiq.be"
               target="_blank"
               rel="noopener noreferrer"
-              class="group inline-flex items-center gap-2 text-sm text-white/55 transition-colors hover:text-white"
+              class="group inline-flex items-center gap-2 text-sm text-foreground/58 transition-colors hover:text-foreground"
             >
-              <span>Conçu par</span>
+              <span>Con&ccedil;u par</span>
               <span
-                class="font-semibold uppercase tracking-[0.08em] text-white/72 transition-colors group-hover:text-primary"
+                class="font-semibold uppercase tracking-[0.08em] text-foreground/78 transition-colors group-hover:text-primary"
               >
                 LOGIQ
               </span>
             </NuxtLink>
 
             <div
-              class="flex flex-wrap items-center justify-center gap-3 md:border-l md:border-white/10 md:pl-6"
+              class="flex flex-wrap items-center justify-center gap-3 md:border-l md:border-border-soft md:pl-6"
             >
               <NuxtLink
                 v-for="social in socialLinks"
@@ -209,7 +211,7 @@ const toggleSection = (section) => {
                 :target="social.target"
                 :rel="social.rel"
                 :aria-label="social.label"
-                class="inline-flex h-10 w-10 items-center justify-center rounded border border-white/10 text-white/55 transition hover:border-white/20 hover:text-primary"
+                class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border-soft bg-surface text-foreground/58 transition hover:border-primary/30 hover:text-primary"
               >
                 <component :is="social.icon" class="h-4 w-4" />
               </NuxtLink>

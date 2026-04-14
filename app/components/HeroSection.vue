@@ -1,8 +1,8 @@
 <script setup>
 const previewItems = [
-  "Header mobile et desktop déjà en place",
-  "Base de tokens light/dark prête à étendre",
-  "SEO, image, lint et composants réutilisables",
+  "Header mobile et desktop d\u00E9j\u00E0 en place",
+  "Base de tokens light/dark pr\u00EAte \u00E0 \u00E9tendre",
+  "SEO, image, lint et composants r\u00E9utilisables",
 ];
 </script>
 
@@ -16,29 +16,25 @@ const previewItems = [
         class="absolute left-1/2 top-[-8rem] h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-primary/18 blur-3xl"
       />
       <div
-        class="absolute right-[-6rem] top-40 h-72 w-72 rounded-full bg-white/6 blur-3xl dark:bg-white/8"
+        class="absolute right-[-6rem] top-40 h-72 w-72 rounded-full bg-black/[0.05] blur-3xl dark:bg-white/8"
       />
       <div
-        class="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(15,23,43,0.04))] dark:bg-[linear-gradient(to_bottom,transparent,rgba(255,255,255,0.02))]"
+        class="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(15,23,43,0.05))] dark:bg-[linear-gradient(to_bottom,transparent,rgba(255,255,255,0.02))]"
       />
     </div>
 
     <div
-      class="mx-auto grid min-h-[calc(100svh-4rem)] max-w-360 items-center gap-14 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] "
+      class="mx-auto grid min-h-[calc(100svh-4rem)] max-w-360 items-center gap-14 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]"
     >
       <div class="max-w-4xl">
-
         <h1
           class="mt-6 max-w-5xl text-5xl font-semibold tracking-[-0.05em] text-balance sm:text-6xl lg:text-7xl xl:text-[5.5rem]"
         >
-          Une base Nuxt, rapide et vraiment prête pour lancer un site
-          agence.
+          Une base Nuxt, rapide et vraiment pr&ecirc;te pour lancer un site agence.
         </h1>
 
-        <p
-          class="mt-6 max-w-2xl text-base leading-8 text-black/72 sm:text-lg dark:text-white/72"
-        >
-          Conçois plus vite avec une structure propre, un thème light/dark,
+        <p class="mt-6 max-w-2xl text-base leading-8 text-foreground/72 sm:text-lg dark:text-foreground/72">
+          Con&ccedil;ois plus vite avec une structure propre, un th&egrave;me light/dark,
           une stack moderne et une interface assez solide pour devenir ton vrai
           starter vitrine.
         </p>
@@ -48,7 +44,7 @@ const previewItems = [
             href="https://github.com/logiq-dev/nuxt-starter-logiq"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover"
+            class="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover"
           >
             Commencer
           </a>
@@ -57,7 +53,7 @@ const previewItems = [
             href="https://github.com/logiq-dev/nuxt-starter-logiq"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-xl border border-black/10 bg-white/65 px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-white dark:border-white/12 dark:bg-white/6 dark:hover:bg-white/10"
+            class="inline-flex items-center gap-2 rounded-md border border-border-soft bg-surface px-6 py-3 text-sm font-semibold text-foreground shadow-sm transition hover:bg-surface-muted hover:shadow-md"
             aria-label="Utiliser ce template (ouvre dans un nouvel onglet)"
           >
             <svg
@@ -74,12 +70,11 @@ const previewItems = [
             Utiliser ce template
           </a>
         </div>
-
       </div>
 
       <div class="relative lg:pl-6">
         <div
-          class="relative overflow-hidden rounded-[2rem] border border-black/10 bg-white/70 p-5 shadow-[0_20px_80px_rgba(15,23,43,0.08)] backdrop-blur-xl dark:border-white/10 dark:bg-white/6 dark:shadow-[0_24px_80px_rgba(0,0,0,0.28)]"
+          class="relative overflow-hidden rounded-[2rem] border border-black/10 bg-white p-5 shadow-[0_20px_80px_rgba(15,23,43,0.08)] backdrop-blur-xl dark:border-white/10 dark:bg-white/6 dark:shadow-[0_24px_80px_rgba(0,0,0,0.28)]"
         >
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
@@ -88,39 +83,35 @@ const previewItems = [
               <span class="h-2.5 w-2.5 rounded-full bg-emerald-400" />
             </div>
             <span
-              class="rounded-full border border-black/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-black/55 dark:border-white/10 dark:text-white/55"
+              class="rounded-full border border-border-soft bg-surface px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-foreground/55"
             >
               LOGIQ system
             </span>
           </div>
 
           <div class="mt-8 space-y-4">
-            <div
-              class="rounded-2xl border border-black/8 bg-primary px-5 py-5 text-white dark:border-white/10"
-            >
+            <div class="rounded-2xl border border-black/8 bg-primary px-5 py-5 text-white">
               <p class="text-xs font-semibold uppercase tracking-[0.22em] text-white/70">
                 Agency-ready
               </p>
               <p class="mt-3 text-2xl font-semibold tracking-tight">
-                Un starter clair, élégant et assez souple pour tes prochains
+                Un starter clair, &eacute;l&eacute;gant et assez souple pour tes prochains
                 projets.
               </p>
             </div>
 
-            <div
-              class="grid gap-3 rounded-2xl border border-black/8 bg-black/[0.03] p-4 dark:border-white/10 dark:bg-white/[0.03]"
-            >
+            <div class="grid gap-3 rounded-2xl border border-border-soft bg-surface p-4">
               <div
                 v-for="item in previewItems"
                 :key="item"
-                class="flex items-start gap-3 rounded-2xl border border-black/8 bg-white/75 px-4 py-3 dark:border-white/8 dark:bg-white/5"
+                class="flex items-start gap-3 rounded-2xl border border-border-soft bg-surface-muted px-4 py-3"
               >
                 <span
                   class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-white"
                 >
                   +
                 </span>
-                <p class="text-sm leading-6 text-black/70 dark:text-white/72">
+                <p class="text-sm leading-6 text-foreground/72 dark:text-foreground/72">
                   {{ item }}
                 </p>
               </div>
@@ -129,18 +120,16 @@ const previewItems = [
         </div>
 
         <div
-          class="absolute -bottom-5 -left-3 rounded-2xl border border-black/10 bg-white/85 px-4 py-3 shadow-lg backdrop-blur-sm dark:border-white/10 dark:bg-white/8"
+          class="absolute -bottom-5 -left-3 rounded-2xl border border-border-soft bg-surface px-4 py-3 shadow-lg backdrop-blur-sm"
         >
-          <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-black/50 dark:text-white/50">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground/50 dark:text-foreground/50">
             Build faster
           </p>
           <p class="mt-1 text-sm font-medium text-foreground">
-            Design, structure, contenu, puis itération.
+            Design, structure, contenu, puis it&eacute;ration.
           </p>
         </div>
       </div>
     </div>
   </section>
 </template>
-app/pages/index.vue
-me

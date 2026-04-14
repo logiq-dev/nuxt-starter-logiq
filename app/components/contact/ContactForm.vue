@@ -158,61 +158,60 @@ const handleSubmit = async () => {
 
 const fieldClass = (field: keyof ContactSubmissionData) =>
   [
-    "w-full rounded-2xl border px-5 py-4 text-base text-white outline-none transition placeholder:text-slate-400",
-    "bg-[#16213a]",
+    "w-full rounded-2xl border border-border-soft bg-surface px-5 py-4 text-base text-foreground outline-none transition placeholder:text-foreground/35",
     fieldErrors.value[field]
       ? "border-red-400 ring-4 ring-red-500/15"
-      : "border-white/8 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/12 focus-visible:border-emerald-400 focus-visible:ring-4 focus-visible:ring-emerald-500/12",
+      : "focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/12 focus-visible:border-emerald-400 focus-visible:ring-4 focus-visible:ring-emerald-500/12",
   ].join(" ");
 </script>
 
 <template>
-  <section class="relative overflow-hidden border-t border-white/8 bg-[#0f172d] py-14 text-white sm:py-20 lg:py-24">
+  <section class="relative overflow-hidden border-t border-border-soft bg-primary-bg py-14 text-foreground sm:py-20 lg:py-24">
 
     <div class="relative mx-auto grid max-w-360 gap-8 px-4 sm:px-6 lg:grid-cols-[1.06fr_0.94fr] lg:gap-10 lg:px-8">
       <div class="lg:pr-8">
-        <div class="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-4 py-2 text-xs font-semibold text-emerald-300 ring-1 ring-emerald-400/10 sm:px-5 sm:text-sm">
+        <div class="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-4 py-2 text-xs font-semibold text-emerald-600 ring-1 ring-emerald-500/15 dark:text-emerald-300 dark:ring-emerald-400/10 sm:px-5 sm:text-sm">
           <Mail class="h-4 w-4" />
           Contact
         </div>
 
-        <h1 class="mt-6 max-w-xl text-4xl font-semibold tracking-tight text-balance sm:mt-8 sm:text-5xl lg:text-6xl">
+        <h1 class="mt-6 max-w-xl text-4xl font-semibold tracking-tight text-balance text-foreground sm:mt-8 sm:text-5xl lg:text-6xl">
           Discutons de votre projet
         </h1>
 
-        <p class="mt-5 max-w-2xl text-base leading-7 text-slate-300 sm:mt-6 sm:text-lg sm:leading-8">
+        <p class="mt-5 max-w-2xl text-base leading-7 text-foreground/72 sm:mt-6 sm:text-lg sm:leading-8">
           Envie de collaborer ? N'hésitez pas à me contacter pour échanger sur vos besoins.
         </p>
 
         <div class="mt-8 space-y-4 sm:mt-10 sm:space-y-5">
-          <div class="group rounded-[22px] border border-white/10 bg-white/6 p-4 shadow-[0_12px_40px_rgba(0,0,0,0.16)] transition duration-300 hover:-translate-y-1 hover:border-emerald-400/25 hover:bg-white/8 hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)] sm:rounded-[26px] sm:p-5">
+          <div class="group rounded-[22px] border border-border-soft bg-surface-strong p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-400/25 hover:bg-surface hover:shadow-[0_12px_28px_rgba(15,23,43,0.06)] sm:rounded-[26px] sm:p-5">
             <div class="flex items-center gap-4 sm:gap-5">
-              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-300 transition duration-300 group-hover:bg-emerald-400/16 group-hover:text-emerald-200 sm:h-12 sm:w-12">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600 transition duration-300 group-hover:bg-emerald-400/16 group-hover:text-emerald-500 dark:text-emerald-300 dark:group-hover:text-emerald-200 sm:h-12 sm:w-12">
                 <Mail class="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
 
               <div class="min-w-0">
-                <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400 sm:text-sm">
+                <p class="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/48 sm:text-sm">
                   Email
                 </p>
-                <p class="mt-1.5 wrap-break-words text-lg font-semibold text-white transition duration-300 group-hover:text-emerald-100 sm:text-[1.75rem]">
+                <p class="mt-1.5 wrap-break-words text-lg font-semibold text-foreground transition duration-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-200 sm:text-[1.75rem]">
                   contact@monsite.com
                 </p>
               </div>
             </div>
           </div>
 
-          <div class="group rounded-[22px] border border-white/10 bg-white/6 p-4 shadow-[0_12px_40px_rgba(0,0,0,0.16)] transition duration-300 hover:-translate-y-1 hover:border-emerald-400/25 hover:bg-white/8 hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)] sm:rounded-[26px] sm:p-5">
+          <div class="group rounded-[22px] border border-border-soft bg-surface-strong p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-emerald-400/25 hover:bg-surface hover:shadow-[0_12px_28px_rgba(15,23,43,0.06)] sm:rounded-[26px] sm:p-5">
             <div class="flex items-center gap-4 sm:gap-5">
-              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-300 transition duration-300 group-hover:bg-emerald-400/16 group-hover:text-emerald-200 sm:h-12 sm:w-12">
+              <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600 transition duration-300 group-hover:bg-emerald-400/16 group-hover:text-emerald-500 dark:text-emerald-300 dark:group-hover:text-emerald-200 sm:h-12 sm:w-12">
                 <LocateFixed class="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
 
               <div>
-                <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400 sm:text-sm">
+                <p class="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/48 sm:text-sm">
                   Localisation
                 </p>
-                <p class="mt-1.5 text-lg font-semibold text-white transition duration-300 group-hover:text-emerald-100 sm:text-[1.75rem]">
+                <p class="mt-1.5 text-lg font-semibold text-foreground transition duration-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-200 sm:text-[1.75rem]">
                   Belgique
                 </p>
               </div>
@@ -221,7 +220,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
         </div>
 
         <div class="mt-8 sm:mt-10">
-          <p class="text-lg font-semibold text-slate-300 sm:text-xl">
+          <p class="text-lg font-semibold text-foreground/72 sm:text-xl">
             Retrouvez-moi sur
           </p>
 
@@ -232,7 +231,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
               :href="social.href"
               :target="social.href.startsWith('http') ? '_blank' : undefined"
               :rel="social.href.startsWith('http') ? 'noopener noreferrer' : undefined"
-              class="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-white/8 bg-white/6 px-4 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-emerald-400/30 hover:text-emerald-300 sm:gap-3 sm:px-5 sm:py-3.5 sm:text-base"
+              class="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-border-soft bg-surface px-4 py-3 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-emerald-400/30 hover:text-emerald-600 dark:hover:text-emerald-300 sm:gap-3 sm:px-5 sm:py-3.5 sm:text-base"
               :aria-label="social.label"
             >
               <component :is="social.icon" class="h-4.5 w-4.5" />
@@ -242,25 +241,25 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
         </div>
       </div>
 
-      <div class="rounded-[28px] border border-white/10 bg-[#111a32] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.24)] sm:rounded-4xl sm:p-7 lg:p-8">
+      <div class="rounded-[28px] border border-border-soft bg-surface-strong p-5 shadow-[0_18px_56px_rgba(15,23,42,0.08)] dark:shadow-[0_18px_56px_rgba(0,0,0,0.18)] sm:rounded-4xl sm:p-7 lg:p-8">
         <div class="flex items-start justify-between gap-4">
           <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300 sm:text-sm">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-600 dark:text-emerald-300 sm:text-sm">
               Formulaire
             </p>
-            <h2 class="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            <h2 class="mt-3 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
               Envoyez votre message
             </h2>
           </div>
 
-          <div class="hidden rounded-2xl bg-emerald-500/10 p-3 text-emerald-300 sm:block">
+          <div class="hidden rounded-2xl bg-emerald-500/10 p-3 text-emerald-600 dark:text-emerald-300 sm:block">
             <ArrowRight class="h-5 w-5" />
           </div>
         </div>
 
         <form class="mt-6 space-y-4 sm:mt-8 sm:space-y-5" novalidate @submit.prevent="handleSubmit">
           <div>
-            <label for="fullName" class="mb-2 block text-sm font-semibold text-white">
+            <label for="fullName" class="mb-2 block text-sm font-semibold text-foreground">
               Nom complet <span class="text-emerald-300" aria-hidden="true">*</span>
               <span class="sr-only">Champ obligatoire</span>
             </label>
@@ -288,7 +287,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
           </div>
 
           <div>
-            <label for="email" class="mb-2 block text-sm font-semibold text-white">
+            <label for="email" class="mb-2 block text-sm font-semibold text-foreground">
               Email <span class="text-emerald-300" aria-hidden="true">*</span>
               <span class="sr-only">Champ obligatoire</span>
             </label>
@@ -316,7 +315,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
           </div>
 
           <div>
-            <label for="phone" class="mb-2 block text-sm font-semibold text-white">
+            <label for="phone" class="mb-2 block text-sm font-semibold text-foreground">
               Téléphone
             </label>
             <input
@@ -342,11 +341,11 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
 
           <div>
             <div class="mb-2 flex items-center justify-between gap-4">
-              <label for="message" class="block text-sm font-semibold text-white">
+              <label for="message" class="block text-sm font-semibold text-foreground">
                 Message <span class="text-emerald-300" aria-hidden="true">*</span>
                 <span class="sr-only">Champ obligatoire</span>
               </label>
-              <span class="text-xs font-medium text-slate-500">
+              <span class="text-xs font-medium text-foreground/42">
                 {{ messageLength }}/2000
               </span>
             </div>
@@ -379,15 +378,15 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
                 ref="turnstileRef"
                 v-model="form.turnstileToken"
                 :site-key="turnstileSiteKey"
-                theme="dark"
+                theme="auto"
                 size="flexible"
                 appearance="always"
                 @error="message => (serverMessage = message)"
               />
             </div>
 
-            <p class="flex items-center justify-center gap-2 text-center text-sm text-slate-400">
-              <ShieldCheck class="h-4 w-4 text-emerald-300" />
+            <p class="flex items-center justify-center gap-2 text-center text-sm text-foreground/56">
+              <ShieldCheck class="h-4 w-4 text-emerald-600 dark:text-emerald-300" />
               Formulaire protégé contre le spam
             </p>
 
@@ -408,8 +407,8 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
             :aria-live="submitState === 'success' ? 'polite' : 'assertive'"
             :class="
               submitState === 'success'
-                ? 'border-emerald-500/25 bg-emerald-500/10 text-emerald-200'
-                : 'border-red-500/25 bg-red-500/10 text-red-200'
+                ? 'border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-200'
+                : 'border-red-500/25 bg-red-500/10 text-red-700 dark:text-red-200'
             "
           >
             <div class="flex items-center gap-2">
@@ -420,7 +419,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
 
           <button
             type="submit"
-            class="inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-4 text-base font-semibold text-white transition hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
+            class="inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-md bg-primary px-5 py-4 text-base font-semibold text-white transition hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
             :disabled="isSubmitting"
           >
             <span>{{ isSubmitting ? "Envoi en cours..." : "Envoyer le message" }}</span>

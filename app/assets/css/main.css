@@ -5,6 +5,10 @@
   --primary: 156 54% 53%;
   --primary-hover: 156 54% 43%;
   --primary-bg: 0 0% 100%;
+  --surface: 0 0% 100%;
+  --surface-strong: 210 33% 98%;
+  --surface-muted: 210 29% 96%;
+  --border-soft: 214 23% 88%;
 }
 
 .dark {
@@ -12,6 +16,10 @@
   --primary: 156 54% 53%;
   --primary-hover: 156 54% 43%;
   --primary-bg: 222 47% 11%;
+  --surface: 222 24% 20%;
+  --surface-strong: 222 24% 18%;
+  --surface-muted: 222 20% 23%;
+  --border-soft: 222 18% 30%;
 }
 
 @theme inline {
@@ -19,6 +27,10 @@
   --color-primary: hsl(var(--primary));
   --color-primary-hover: hsl(var(--primary-hover));
   --color-primary-bg: hsl(var(--primary-bg));
+  --color-surface: hsl(var(--surface));
+  --color-surface-strong: hsl(var(--surface-strong));
+  --color-surface-muted: hsl(var(--surface-muted));
+  --color-border-soft: hsl(var(--border-soft));
 }
 
 body {
