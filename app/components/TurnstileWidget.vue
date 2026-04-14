@@ -159,10 +159,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="space-y-3">
-    <div
-      ref="containerRef"
-      class="min-h-[74px] rounded-2xl border border-white/10 bg-[#16213a] p-3"
-    />
+    <div ref="containerRef" class="min-h-[74px]" />
 
     <p v-if="loadError" class="text-sm text-red-300" role="alert">
       {{ loadError }}

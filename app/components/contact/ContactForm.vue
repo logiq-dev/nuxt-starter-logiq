@@ -42,9 +42,13 @@ const socialLinks = [
   { label: "Instagram", href: "#", icon: Instagram },
 ];
 
+type TurnstileWidgetInstance = {
+  reset: () => void;
+};
+
 const runtimeConfig = useRuntimeConfig();
 const turnstileSiteKey = runtimeConfig.public.turnstileSiteKey;
-const turnstileRef = ref<InstanceType<typeof TurnstileWidget> | null>(null);
+const turnstileRef = ref<TurnstileWidgetInstance | null>(null);
 
 const messageLength = computed(() => form.message.trim().length);
 
@@ -164,7 +168,6 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
 
 <template>
   <section class="relative overflow-hidden border-t border-white/8 bg-[#0f172d] py-14 text-white sm:py-20 lg:py-24">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(52,211,153,0.08),_transparent_28%),radial-gradient(circle_at_bottom_right,_rgba(45,212,191,0.07),_transparent_24%)]" />
 
     <div class="relative mx-auto grid max-w-360 gap-8 px-4 sm:px-6 lg:grid-cols-[1.06fr_0.94fr] lg:gap-10 lg:px-8">
       <div class="lg:pr-8">
@@ -192,7 +195,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
                 <p class="text-xs font-semibold uppercase tracking-[0.12em] text-slate-400 sm:text-sm">
                   Email
                 </p>
-                <p class="mt-1.5 break-words text-lg font-semibold text-white transition duration-300 group-hover:text-emerald-100 sm:text-[1.75rem]">
+                <p class="mt-1.5 wrap-break-words text-lg font-semibold text-white transition duration-300 group-hover:text-emerald-100 sm:text-[1.75rem]">
                   contact@monsite.com
                 </p>
               </div>
@@ -239,7 +242,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
         </div>
       </div>
 
-      <div class="rounded-[28px] border border-white/10 bg-[#111a32] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.24)] sm:rounded-[32px] sm:p-7 lg:p-8">
+      <div class="rounded-[28px] border border-white/10 bg-[#111a32] p-5 shadow-[0_18px_60px_rgba(0,0,0,0.24)] sm:rounded-4xl sm:p-7 lg:p-8">
         <div class="flex items-start justify-between gap-4">
           <div>
             <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-300 sm:text-sm">
@@ -370,16 +373,18 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
           </div>
 
           <div class="space-y-3">
-            <TurnstileWidget
-              v-if="turnstileSiteKey"
-              ref="turnstileRef"
-              v-model="form.turnstileToken"
-              :site-key="turnstileSiteKey"
-              theme="dark"
-              size="flexible"
-              appearance="always"
-              @error="message => (serverMessage = message)"
-            />
+            <div class="w-full max-w-[24rem] sm:max-w-1/2">
+              <TurnstileWidget
+                v-if="turnstileSiteKey"
+                ref="turnstileRef"
+                v-model="form.turnstileToken"
+                :site-key="turnstileSiteKey"
+                theme="dark"
+                size="flexible"
+                appearance="always"
+                @error="message => (serverMessage = message)"
+              />
+            </div>
 
             <p class="flex items-center justify-center gap-2 text-center text-sm text-slate-400">
               <ShieldCheck class="h-4 w-4 text-emerald-300" />
@@ -415,7 +420,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
 
           <button
             type="submit"
-            class="inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-4 text-base font-semibold text-white transition hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-60"
+            class="inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-2xl bg-primary px-5 py-4 text-base font-semibold text-white transition hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
             :disabled="isSubmitting"
           >
             <span>{{ isSubmitting ? "Envoi en cours..." : "Envoyer le message" }}</span>
