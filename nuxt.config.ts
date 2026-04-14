@@ -1,3 +1,5 @@
+﻿/// <reference types="node" />
+
 import tailwindcss from "@tailwindcss/vite";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -18,5 +20,15 @@ export default defineNuxtConfig({
     fallback: "light",
     classSuffix: "",
     storageKey: "color-mode",
+  },
+
+  runtimeConfig: {
+    resendApiKey: process.env.RESEND_API_KEY,
+    contactFromEmail: process.env.CONTACT_FROM_EMAIL,
+    contactToEmail: process.env.CONTACT_TO_EMAIL,
+    turnstileSecretKey: process.env.TURNSTILE_SECRET_KEY,
+    public: {
+      turnstileSiteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY,
+    },
   },
 });

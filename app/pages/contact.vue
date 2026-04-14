@@ -1,7 +1,10 @@
-<script lang="ts"></script>
+﻿<script setup lang="ts">
+useSeoMeta({
+  title: "Contact",
+  description: "Parlez-nous de votre projet via un formulaire moderne validé côté serveur.",
+});
+</script>
+
 <template>
-  <div>
-    <h1>Contact</h1>
-    <p>Vous pouvez me contacter à l'adresse email suivante : contact@monsite.com</p>
-  </div>
+  <ContactForm />
 </template>

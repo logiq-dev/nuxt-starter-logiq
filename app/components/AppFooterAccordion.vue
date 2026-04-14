@@ -59,7 +59,7 @@ const toggleSection = (section) => {
         <div class="flex flex-col items-center lg:col-span-5 lg:items-start">
           <div class="flex items-center gap-3">
             <div
-              class="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-blue-400 shadow-[0_0_20px_rgba(0,220,130,0.25)]"
+              class="h-8 w-8 rounded-lg bg-linear-to-br from-primary to-blue-400 shadow-[0_0_20px_rgba(0,220,130,0.25)]"
             />
             <span class="text-xl font-bold tracking-tight text-white">
               LOGIQ<span class="text-primary">.</span>
@@ -73,14 +73,21 @@ const toggleSection = (section) => {
 
           <div class="mt-8 w-full max-w-md">
             <div
-              class="group relative flex items-center rounded-full border border-white/10 bg-white/[0.03] p-1 transition focus-within:border-primary/50"
+              class="group relative flex items-center rounded-full border border-white/10 bg-white/3 p-1 transition focus-within:border-primary/50"
             >
+              <label for="footer-accordion-newsletter-email" class="sr-only">
+                Votre email
+              </label>
               <input
+                id="footer-accordion-newsletter-email"
+                name="newsletterEmail"
                 type="email"
+                autocomplete="email"
                 placeholder="Votre email"
                 class="w-full bg-transparent px-4 text-sm outline-none placeholder:text-white/30"
               >
               <button
+                type="button"
                 class="cursor-pointer rounded-full bg-white px-4 py-2 text-xs font-bold text-black transition hover:bg-primary hover:text-white"
               >
                 Rejoindre

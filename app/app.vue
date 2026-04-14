@@ -22,6 +22,7 @@
     :throttle="0"
   />
     <NuxtRouteAnnouncer />
+    <AppToast />
    <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
