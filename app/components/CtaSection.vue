@@ -19,7 +19,7 @@
         <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <NuxtLink
             to="/contact"
-            class="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 font-medium text-white transition hover:bg-primary-hover"
+            class="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 font-medium text-primary-foreground transition hover:bg-primary-hover"
           >
             Contactez-nous
           </NuxtLink>

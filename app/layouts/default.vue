@@ -7,7 +7,7 @@
   <div class="min-h-screen flex flex-col bg-primary-bg text-foreground transition-colors">
     <AppHeader />
     <!-- Main content -->
-    <main class="flex-1 w-full">
+    <main id="main-content" tabindex="-1" class="flex-1 w-full focus:outline-none">
       <slot />
     </main>
     <CtaSection />

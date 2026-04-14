@@ -11,17 +11,7 @@ const previewItems = [
     class="relative isolate overflow-hidden bg-primary-bg text-foreground"
     aria-label="Section d'accueil"
   >
-    <div class="absolute inset-0 -z-10">
-      <div
-        class="absolute left-1/2 top-[-8rem] h-[26rem] w-[26rem] -translate-x-1/2 rounded-full bg-primary/18 blur-3xl"
-      />
-      <div
-        class="absolute right-[-6rem] top-40 h-72 w-72 rounded-full bg-black/[0.05] blur-3xl dark:bg-white/8"
-      />
-      <div
-        class="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(15,23,43,0.05))] dark:bg-[linear-gradient(to_bottom,transparent,rgba(255,255,255,0.02))]"
-      />
-    </div>
+ 
 
     <div
       class="mx-auto grid min-h-[calc(100svh-4rem)] max-w-360 items-center gap-14 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]"
@@ -44,7 +34,7 @@ const previewItems = [
             href="https://github.com/logiq-dev/nuxt-starter-logiq"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover"
+            class="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-hover"
           >
             Commencer
           </a>

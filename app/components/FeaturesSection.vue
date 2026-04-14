@@ -68,7 +68,7 @@ const features = [
         </p>
       </header>
 
-      <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ul class="mt-16 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3">
         <FeatureItem
           v-for="feature in features"
           :key="feature.title"
@@ -76,7 +76,7 @@ const features = [
           :description="feature.description"
           :icon="feature.icon"
         />
-      </div>
+      </ul>
     </div>
   </section>
 </template>

@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, onUnmounted, ref } from "vue";
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import ColorModeToggle from "./ColorModeToggle.vue";
 
 const navigationLinks = [
@@ -8,26 +8,56 @@ const navigationLinks = [
 ];
 
 const colorMode = useColorMode();
+const route = useRoute();
 const isMenuOpen = ref(false);
+const menuButton = ref(null);
+const mobileMenu = ref(null);
 const isDark = computed(() => colorMode.value === "dark");
 
 const logoSrc = computed(() =>
   isDark.value ? "/images/logo/logo-dark-nuxt.svg" : "/images/logo/logo-light-nuxt.svg",
 );
 
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
+const isCurrentPage = (path) => route.path === path;
+
+const focusFirstMobileItem = () => {
+  const firstFocusableElement = mobileMenu.value?.querySelector(
+    'a, button, [tabindex]:not([tabindex="-1"])',
+  );
+
+  firstFocusableElement?.focus();
 };
 
-const closeMenu = () => {
+const toggleMenu = async () => {
+  isMenuOpen.value = !isMenuOpen.value;
+
+  if (isMenuOpen.value) {
+    await nextTick();
+    focusFirstMobileItem();
+  }
+};
+
+const closeMenu = async ({ restoreFocus = false } = {}) => {
   isMenuOpen.value = false;
+
+  if (restoreFocus) {
+    await nextTick();
+    menuButton.value?.focus();
+  }
 };
 
 const handleKeydown = (event) => {
   if (event.key === "Escape" && isMenuOpen.value) {
-    closeMenu();
+    closeMenu({ restoreFocus: true });
   }
 };
+
+watch(
+  () => route.fullPath,
+  () => {
+    closeMenu();
+  },
+);
 
 onMounted(() => {
   document.addEventListener("keydown", handleKeydown);
@@ -42,19 +72,22 @@ onUnmounted(() => {
   <header
     class="sticky top-0 z-50 w-full border-b border-border-soft bg-primary-bg text-foreground transition-colors"
   >
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
     <nav
       class="mx-auto flex h-16 max-w-360 items-center justify-between px-4 sm:px-6 lg:px-8"
       aria-label="Navigation principale"
     >
       <NuxtLink
         to="/"
-        class="flex items-center gap-2"
-        aria-label="Retour a l'accueil"
+        class="focus-ring flex items-center gap-2 rounded-md"
+        aria-label="Retour à l'accueil"
         @click="closeMenu"
       >
         <NuxtImg
           :src="logoSrc"
-          alt="Logo Nom du site"
+          alt=""
+          aria-hidden="true"
           class="h-7 w-auto"
           loading="eager"
           decoding="async"
@@ -65,7 +98,8 @@ onUnmounted(() => {
         <li v-for="link in navigationLinks" :key="link.to">
           <NuxtLink
             :to="link.to"
-            class="text-foreground/72 transition-colors hover:text-foreground dark:text-foreground/80 dark:hover:text-foreground"
+            :aria-current="isCurrentPage(link.to) ? 'page' : undefined"
+            class="focus-ring rounded-md px-1 py-1 text-foreground/72 transition-colors hover:text-foreground dark:text-foreground/80 dark:hover:text-foreground"
           >
             {{ link.label }}
           </NuxtLink>
@@ -77,14 +111,16 @@ onUnmounted(() => {
 
         <NuxtLink
           to="/contact"
-          class="hidden items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white transition hover:bg-primary-hover sm:inline-flex"
+          class="focus-ring hidden items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:bg-primary-hover sm:inline-flex"
+          :aria-current="isCurrentPage('/contact') ? 'page' : undefined"
         >
           Contact
         </NuxtLink>
 
         <button
+          ref="menuButton"
           type="button"
-          class="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black/[0.03] text-foreground transition-colors hover:bg-black/[0.06] dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 md:hidden"
+          class="focus-ring flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black/[0.03] text-foreground transition-colors hover:bg-black/[0.06] dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 md:hidden"
           :aria-label="isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'"
           :aria-expanded="isMenuOpen"
           aria-controls="mobile-menu"
@@ -138,6 +174,7 @@ onUnmounted(() => {
       <div
         v-if="isMenuOpen"
         id="mobile-menu"
+        ref="mobileMenu"
         class="absolute left-0 right-0 top-16 border-t border-border-soft bg-primary-bg shadow-lg md:hidden"
         role="region"
         aria-label="Menu de navigation mobile"
@@ -146,7 +183,8 @@ onUnmounted(() => {
           <li v-for="link in navigationLinks" :key="link.to">
             <NuxtLink
               :to="link.to"
-              class="block py-2 text-foreground/72 transition-colors hover:text-foreground dark:text-foreground/80 dark:hover:text-foreground"
+              :aria-current="isCurrentPage(link.to) ? 'page' : undefined"
+              class="focus-ring block rounded-md px-2 py-2 text-foreground/72 transition-colors hover:text-foreground dark:text-foreground/80 dark:hover:text-foreground"
               @click="closeMenu"
             >
               {{ link.label }}
@@ -155,7 +193,8 @@ onUnmounted(() => {
           <li class="pt-2">
             <NuxtLink
               to="/contact"
-              class="inline-flex w-full justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white transition hover:bg-primary-hover"
+              class="focus-ring inline-flex w-full justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition hover:bg-primary-hover"
+              :aria-current="isCurrentPage('/contact') ? 'page' : undefined"
               @click="closeMenu"
             >
               Contact

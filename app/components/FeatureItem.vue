@@ -7,8 +7,8 @@ defineProps({
 </script>
 
 <template>
-  <div
-    class="group flex h-full cursor-pointer gap-4 rounded-lg border border-border-soft bg-surface-strong p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-surface-strong hover:shadow-[0_12px_28px_rgba(15,23,43,0.06)]"
+  <li
+    class="group flex h-full gap-4 rounded-lg border border-border-soft bg-surface-strong p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-surface-strong hover:shadow-[0_12px_28px_rgba(15,23,43,0.06)]"
   >
     <div
       class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/12 text-primary transition-colors duration-300 group-hover:bg-primary/18"
@@ -24,5 +24,5 @@ defineProps({
         {{ description }}
       </p>
     </div>
-  </div>
+  </li>
 </template>

@@ -35,6 +35,7 @@ const isSubmitting = ref(false);
 const serverMessage = ref("");
 const submitState = ref<"idle" | "success" | "error">("idle");
 const { push: pushToast } = useToast();
+const formRef = ref<HTMLFormElement | null>(null);
 
 const socialLinks = [
   { label: "LinkedIn", href: "#", icon: Linkedin },
@@ -102,6 +103,13 @@ const resetForm = () => {
   form.turnstileToken = "";
 };
 
+const focusFirstInvalidField = async () => {
+  await nextTick();
+
+  const firstInvalidField = formRef.value?.querySelector<HTMLElement>("[aria-invalid='true']");
+  firstInvalidField?.focus();
+};
+
 const handleSubmit = async () => {
   resetFeedback();
 
@@ -116,6 +124,7 @@ const handleSubmit = async () => {
   if (!mapClientErrors(payload)) {
     submitState.value = "error";
     serverMessage.value = "Merci de vérifier les champs du formulaire.";
+    await focusFirstInvalidField();
     return;
   }
 
@@ -150,6 +159,7 @@ const handleSubmit = async () => {
     submitState.value = "error";
     serverMessage.value =
       data?.message || "Une erreur est survenue. Merci de réessayer dans un instant.";
+    await focusFirstInvalidField();
   }
   finally {
     isSubmitting.value = false;
@@ -158,15 +168,15 @@ const handleSubmit = async () => {
 
 const fieldClass = (field: keyof ContactSubmissionData) =>
   [
-    "w-full rounded-2xl border border-border-soft bg-surface px-5 py-4 text-base text-foreground outline-none transition placeholder:text-foreground/35",
+    "w-full rounded-2xl border border-border-soft bg-surface px-5 py-4 text-base text-foreground outline-none transition placeholder:text-foreground/48",
     fieldErrors.value[field]
-      ? "border-red-400 ring-4 ring-red-500/15"
-      : "focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/12 focus-visible:border-emerald-400 focus-visible:ring-4 focus-visible:ring-emerald-500/12",
+      ? "border-red-500 ring-4 ring-red-500/15 focus:border-red-500 focus:ring-4 focus:ring-red-500/15 focus-visible:border-red-500 focus-visible:ring-4 focus-visible:ring-red-500/15"
+      : "focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/12 focus-visible:border-emerald-500 focus-visible:ring-4 focus-visible:ring-emerald-500/12",
   ].join(" ");
 </script>
 
 <template>
-  <section class="relative overflow-hidden border-t border-border-soft bg-primary-bg py-14 text-foreground sm:py-20 lg:py-24">
+  <section class="relative overflow-hidden bg-primary-bg pb-14 pt-8 text-foreground sm:pb-20 sm:pt-12 lg:pb-24 lg:pt-14">
 
     <div class="relative mx-auto grid max-w-360 gap-8 px-4 sm:px-6 lg:grid-cols-[1.06fr_0.94fr] lg:gap-10 lg:px-8">
       <div class="lg:pr-8">
@@ -247,7 +257,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
             <p class="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-600 dark:text-emerald-300 sm:text-sm">
               Formulaire
             </p>
-            <h2 class="mt-3 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            <h2 id="contact-form-title" class="mt-3 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
               Envoyez votre message
             </h2>
           </div>
@@ -257,10 +267,16 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
           </div>
         </div>
 
-        <form class="mt-6 space-y-4 sm:mt-8 sm:space-y-5" novalidate @submit.prevent="handleSubmit">
+        <form
+          ref="formRef"
+          class="mt-6 space-y-4 sm:mt-8 sm:space-y-5"
+          novalidate
+          aria-labelledby="contact-form-title"
+          @submit.prevent="handleSubmit"
+        >
           <div>
             <label for="fullName" class="mb-2 block text-sm font-semibold text-foreground">
-              Nom complet <span class="text-emerald-300" aria-hidden="true">*</span>
+              Nom complet <span class="text-foreground/72" aria-hidden="true">*</span>
               <span class="sr-only">Champ obligatoire</span>
             </label>
             <input
@@ -279,7 +295,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
             <p
               v-if="fieldErrors.fullName"
               id="fullName-error"
-              class="mt-2 text-sm text-red-300"
+              class="mt-2 text-sm text-red-700 dark:text-red-200"
               role="alert"
             >
               {{ fieldErrors.fullName }}
@@ -288,7 +304,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
 
           <div>
             <label for="email" class="mb-2 block text-sm font-semibold text-foreground">
-              Email <span class="text-emerald-300" aria-hidden="true">*</span>
+              Email <span class="text-foreground/72" aria-hidden="true">*</span>
               <span class="sr-only">Champ obligatoire</span>
             </label>
             <input
@@ -307,7 +323,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
             <p
               v-if="fieldErrors.email"
               id="email-error"
-              class="mt-2 text-sm text-red-300"
+              class="mt-2 text-sm text-red-700 dark:text-red-200"
               role="alert"
             >
               {{ fieldErrors.email }}
@@ -332,7 +348,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
             <p
               v-if="fieldErrors.phone"
               id="phone-error"
-              class="mt-2 text-sm text-red-300"
+              class="mt-2 text-sm text-red-700 dark:text-red-200"
               role="alert"
             >
               {{ fieldErrors.phone }}
@@ -342,10 +358,10 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
           <div>
             <div class="mb-2 flex items-center justify-between gap-4">
               <label for="message" class="block text-sm font-semibold text-foreground">
-                Message <span class="text-emerald-300" aria-hidden="true">*</span>
+                Message <span class="text-foreground/72" aria-hidden="true">*</span>
                 <span class="sr-only">Champ obligatoire</span>
               </label>
-              <span class="text-xs font-medium text-foreground/42">
+              <span id="message-help" class="text-xs font-medium text-foreground/62" aria-live="polite">
                 {{ messageLength }}/2000
               </span>
             </div>
@@ -359,12 +375,12 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
               required
               aria-required="true"
               :aria-invalid="hasError('message')"
-              :aria-describedby="describedBy('message')"
+              :aria-describedby="[describedBy('message'), 'message-help'].filter(Boolean).join(' ')"
             />
             <p
               v-if="fieldErrors.message"
               id="message-error"
-              class="mt-2 text-sm text-red-300"
+              class="mt-2 text-sm text-red-700 dark:text-red-200"
               role="alert"
             >
               {{ fieldErrors.message }}
@@ -385,7 +401,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
               />
             </div>
 
-            <p class="flex items-center justify-center gap-2 text-center text-sm text-foreground/56">
+            <p class="flex items-center justify-center gap-2 text-center text-sm text-foreground/62">
               <ShieldCheck class="h-4 w-4 text-emerald-600 dark:text-emerald-300" />
               Formulaire protégé contre le spam
             </p>
@@ -393,7 +409,7 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
             <p
               v-if="fieldErrors.turnstileToken"
               id="turnstileToken-error"
-              class="text-sm text-red-300"
+              class="text-sm text-red-700 dark:text-red-200"
               role="alert"
             >
               {{ fieldErrors.turnstileToken }}
@@ -419,11 +435,11 @@ const fieldClass = (field: keyof ContactSubmissionData) =>
 
           <button
             type="submit"
-            class="inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-md bg-primary px-5 py-4 text-base font-semibold text-white transition hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
+            class="focus-ring inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-md bg-primary px-5 py-4 text-base font-semibold text-primary-foreground transition hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
             :disabled="isSubmitting"
           >
             <span>{{ isSubmitting ? "Envoi en cours..." : "Envoyer le message" }}</span>
-            <Send class="h-4 w-4 text-white" />
+            <Send class="h-4 w-4 text-primary-foreground" />
           </button>
         </form>
       </div>

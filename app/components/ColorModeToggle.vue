@@ -44,7 +44,7 @@ watch(
   <ClientOnly>
     <button
       type="button"
-      class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-black/10 bg-black/3 text-foreground shadow-sm backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:bg-black/3 hover:shadow-md dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 cursor-pointer"
+      class="focus-ring inline-flex h-9 w-9 items-center justify-center rounded-md border border-black/10 bg-black/3 text-foreground shadow-sm backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:bg-black/3 hover:shadow-md dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 cursor-pointer"
       :aria-label="buttonLabel"
       :title="buttonLabel"
       @click="toggleColorMode"
