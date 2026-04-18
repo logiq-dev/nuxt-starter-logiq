@@ -78,7 +78,7 @@ const socialLinks = [
                 type="email"
                 autocomplete="email"
                 placeholder="Votre email"
-                class="w-full bg-transparent px-4 text-sm text-foreground outline-none placeholder:text-foreground/35"
+                class="w-full bg-transparent px-4 text-base text-foreground outline-none placeholder:text-foreground/35 sm:text-sm"
               >
               <button
                 type="button"
