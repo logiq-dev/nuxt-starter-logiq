@@ -1,15 +1,13 @@
 ﻿<script setup lang="ts">
-import {
-  ArrowRight,
-  CheckCircle2,
-  Github,
-  Instagram,
-  Linkedin,
-  LocateFixed,
-  Mail,
-  Send,
-  ShieldCheck,
-} from "lucide-vue-next";
+import ArrowRight from "lucide-vue-next/dist/esm/icons/arrow-right.js";
+import CheckCircle2 from "lucide-vue-next/dist/esm/icons/circle-check.js";
+import Github from "lucide-vue-next/dist/esm/icons/github.js";
+import Instagram from "lucide-vue-next/dist/esm/icons/instagram.js";
+import Linkedin from "lucide-vue-next/dist/esm/icons/linkedin.js";
+import LocateFixed from "lucide-vue-next/dist/esm/icons/locate-fixed.js";
+import Mail from "lucide-vue-next/dist/esm/icons/mail.js";
+import Send from "lucide-vue-next/dist/esm/icons/send.js";
+import ShieldCheck from "lucide-vue-next/dist/esm/icons/shield-check.js";
 
 import type { ContactFieldErrors, ContactSubmissionData } from "~~/shared/schemas/contact";
 import { contactSubmissionSchema } from "~~/shared/schemas/contact";

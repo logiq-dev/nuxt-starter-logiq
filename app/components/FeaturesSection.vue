@@ -1,12 +1,10 @@
 <script setup>
-import {
-  Code,
-  Image,
-  LayoutGrid,
-  ShieldCheck,
-  SunMoon,
-  TrendingUp,
-} from "lucide-vue-next";
+import Code from "lucide-vue-next/dist/esm/icons/code.js";
+import Image from "lucide-vue-next/dist/esm/icons/image.js";
+import LayoutGrid from "lucide-vue-next/dist/esm/icons/layout-grid.js";
+import ShieldCheck from "lucide-vue-next/dist/esm/icons/shield-check.js";
+import SunMoon from "lucide-vue-next/dist/esm/icons/sun-moon.js";
+import TrendingUp from "lucide-vue-next/dist/esm/icons/trending-up.js";
 
 const features = [
   {

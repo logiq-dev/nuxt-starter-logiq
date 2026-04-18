@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { CheckCircle2, X, XCircle } from "lucide-vue-next";
+import CheckCircle2 from "lucide-vue-next/dist/esm/icons/circle-check.js";
+import X from "lucide-vue-next/dist/esm/icons/x.js";
+import XCircle from "lucide-vue-next/dist/esm/icons/circle-x.js";
 
 const { toasts, remove } = useToast();
 

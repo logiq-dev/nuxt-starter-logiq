@@ -1,5 +1,5 @@
 <script setup>
-import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
+import { nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import ColorModeToggle from "./ColorModeToggle.vue";
 
 const navigationLinks = [
@@ -7,16 +7,10 @@ const navigationLinks = [
   { label: "Contact", to: "/contact" },
 ];
 
-const colorMode = useColorMode();
 const route = useRoute();
 const isMenuOpen = ref(false);
 const menuButton = ref(null);
 const mobileMenu = ref(null);
-const isDark = computed(() => colorMode.value === "dark");
-
-const logoSrc = computed(() =>
-  isDark.value ? "/images/logo/logo-dark-nuxt.svg" : "/images/logo/logo-light-nuxt.svg",
-);
 
 const isCurrentPage = (path) => route.path === path;
 
@@ -85,10 +79,18 @@ onUnmounted(() => {
         @click="closeMenu"
       >
         <NuxtImg
-          :src="logoSrc"
+          src="/images/logo/logo-light-nuxt.svg"
           alt=""
           aria-hidden="true"
-          class="h-7 w-auto"
+          class="h-7 w-auto dark:hidden"
+          loading="eager"
+          decoding="async"
+        />
+        <NuxtImg
+          src="/images/logo/logo-dark-nuxt.svg"
+          alt=""
+          aria-hidden="true"
+          class="hidden h-7 w-auto dark:block"
           loading="eager"
           decoding="async"
         />

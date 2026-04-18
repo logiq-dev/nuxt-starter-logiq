@@ -1,5 +1,8 @@
 <script setup>
-import { Facebook, Github, Instagram, Twitter } from "lucide-vue-next";
+import Facebook from "lucide-vue-next/dist/esm/icons/facebook.js";
+import Github from "lucide-vue-next/dist/esm/icons/github.js";
+import Instagram from "lucide-vue-next/dist/esm/icons/instagram.js";
+import Twitter from "lucide-vue-next/dist/esm/icons/twitter.js";
 
 const year = new Date().getFullYear();
 
