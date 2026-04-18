@@ -8,6 +8,7 @@ export const SITE_DEFAULT_OG_TITLE = "Starter Nuxt moderne et pret a lancer";
 export const SITE_DEFAULT_OG_DESCRIPTION =
   "Base Nuxt moderne avec Tailwind CSS, dark mode, formulaire de contact et fondamentaux SEO deja en place.";
 export const SITE_DEFAULT_OG_ALT = `${SITE_NAME} - apercu du site`;
+export const SITE_DEFAULT_OG_IMAGE_PATH = "/og/nuxt-logiq-og.jpg";
 export const SITE_URL =
   process.env.NUXT_SITE_URL ||
   (process.env.NODE_ENV === "production" ? "https://example.com" : "http://localhost:3000");

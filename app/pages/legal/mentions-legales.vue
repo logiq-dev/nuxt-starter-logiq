@@ -2,7 +2,6 @@
 usePageSeo({
   title: "Mentions legales",
   description: "Consultez les informations legales du site et les mentions obligatoires.",
-  keywords: ["mentions legales", "informations legales", "site vitrine"],
 });
 </script>
 

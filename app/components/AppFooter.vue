@@ -67,7 +67,7 @@ const socialLinks = [
 
           <div class="mt-8 w-full max-w-md">
             <div
-              class="group relative flex items-center rounded-full border border-border-soft bg-surface p-1 shadow-sm transition focus-within:border-primary/50"
+              class="group relative flex items-center rounded-full border border-border-soft bg-surface p-1 shadow-sm transition md:focus-within:border-primary/50"
             >
               <label for="footer-newsletter-email" class="sr-only">
                 Votre email

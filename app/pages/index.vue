@@ -5,7 +5,6 @@ usePageSeo({
     "Starter Nuxt moderne pour creer des sites vitrines performants, accessibles et prets pour la production.",
   socialDescription:
     "Base Nuxt moderne avec Tailwind CSS, dark mode, formulaire de contact et stack SEO complete via Nuxt SEO.",
-  keywords: ["nuxt starter", "starter vitrine", "nuxt seo", "tailwind css", "starter agence"],
 });
 </script>
 

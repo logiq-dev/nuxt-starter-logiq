@@ -101,7 +101,7 @@ const toggleSection = (section) => {
 
           <div class="mt-8 w-full max-w-md">
             <div
-              class="group relative flex items-center rounded-full border border-border-soft bg-surface p-1 shadow-sm transition focus-within:border-primary/50 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-foreground"
+              class="group relative flex items-center rounded-full border border-border-soft bg-surface p-1 shadow-sm transition md:focus-within:border-primary/50 md:focus-within:outline-2 md:focus-within:outline-offset-2 md:focus-within:outline-foreground"
             >
               <label for="footer-accordion-newsletter-email" class="sr-only">
                 Votre email
