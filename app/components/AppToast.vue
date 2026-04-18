@@ -19,7 +19,7 @@ const iconStyles: Record<"success" | "error", string> = {
 <template>
   <Teleport to="body">
     <div
-      class="pointer-events-none fixed inset-x-0 top-4 z-[100] flex justify-center px-4 sm:top-6 sm:justify-end sm:px-6"
+      class="pointer-events-none fixed inset-x-0 bottom-4 z-[100] flex justify-center px-4 sm:bottom-6 sm:justify-end sm:px-6"
       aria-live="polite"
       aria-atomic="true"
     >
